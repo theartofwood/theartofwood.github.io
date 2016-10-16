@@ -11,15 +11,11 @@ $page-offset: 10px;
 $left-indent: 30px;
 
 body {
-  background: url('/images/background.png');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('/images/background.jpg');
+  background-repeat: repeat-y;
   background-position: center center;
   margin: $page-offset;
   font-family: "Comfortaa", cursive;
-
-  height: calc(100vh - #{2 * $page-offset});
-  background-attachment: fixed;
 }
 
 #wrapper {
