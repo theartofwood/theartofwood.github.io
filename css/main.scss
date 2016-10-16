@@ -162,6 +162,8 @@ body {
 
   .gallery-image {
 
+    text-align: center;
+
     &.small {
       width: 200px;
       height: 210px;
@@ -179,7 +181,7 @@ body {
     }
 
     img {
-      width: 100%;
+      max-width: 100%;
       height: auto;
     }
   }
