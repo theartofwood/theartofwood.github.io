@@ -50,6 +50,22 @@ if (lightboxLinks.length) {
 
       leftArrow.bind('click', function(e) {nextImage(-1,e)});
       rightArrow.bind('click', function(e) {nextImage(1,e)});
+
+      $(document).bind('keydown', function(e) {
+        if (lightbox.is('.visible')) {
+          switch (e.keyCode) {
+            case 37: // left arrow
+              nextImage(-1);
+              break;
+            case 39: // right arrow
+              nextImage(1);
+              break;
+            case 27: // ESC
+              toggleLightbox();
+            default:
+          }
+        }
+      });
     }
   }
 
@@ -91,22 +107,6 @@ if (lightboxLinks.length) {
 
     showImage(nextImage);
   }
-
-  $(document).bind('keydown', function(e) {
-    if (lightbox.is('.visible')) {
-      switch (e.keyCode) {
-        case 37:
-          nextImage(-1);
-          break;
-        case 39:
-          nextImage(1);
-          break;
-        case 27:
-          toggleLightbox();
-        default:
-      }
-    }
-  });
 
   buildLightbox();
 }
