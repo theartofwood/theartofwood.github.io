@@ -1,3 +1,5 @@
 <div id="slideshow">
-  Slideshow
+  {% for entry in site.data.slideshow %}{% for image in entry.images %}{% assign path = '/images/galleries/' | append: entry.folder %}
+      <div class="slide" data-src="{{path}}/{{image}}" data-display="{{path}}/small/{{image}}"></div>
+  {% endfor %} {% endfor %}
 </div>

@@ -110,3 +110,58 @@ if (lightboxLinks.length) {
 
   buildLightbox();
 }
+
+// slideshow
+
+var slideshow = $('#slideshow');
+
+if (slideshow.length) {
+
+  var slideshowImages = $('#slideshow .slide');
+
+  slideshowImages.eq(0).addClass('visible');
+  slideshowImages.each(function() {
+    var spinner = $('<div class="spinner">')
+      .append($('<div class="bounce1">'))
+      .append($('<div class="bounce2">'))
+      .append($('<div class="bounce3">'))
+      .append($('<div class="bounce4">'));
+
+    $(this).html(spinner);
+
+    var slide = this;
+    var loadImg = new Image();
+    loadImg.src = this.dataset.display;
+    loadImg.onload = function() {
+      $(slide).html(this);
+    }
+  });
+
+  var animateSlides = function(curr, next) {
+    slideshow.attr('data-image', next);
+
+    slideshowImages.eq(curr).addClass('animate current');
+    slideshowImages.eq(next).addClass('visible').addClass('animate next');
+
+    window.setTimeout(function() { clearAnimation(curr, next); }, 1000);
+
+  }
+
+  var clearAnimation = function(curr, next) {
+    slideshowImages.eq(curr).removeClass('visible animate current');
+    slideshowImages.eq(next).removeClass('animate next');
+  }
+
+  var slideImages = function(dir, e) {
+    var currImage = parseInt(slideshow.attr('data-image')) || 0;
+    var nextImage = mod(currImage + dir, slideshowImages.length);
+
+    animateSlides(currImage, nextImage);
+  }
+
+  var autoSlides = function() { slideImages(1) };
+
+  var slideShowInterval = window.setInterval(autoSlides, 5000);
+
+  slideshow.bind('click', function() {clearInterval(slideShowInterval)} );
+}

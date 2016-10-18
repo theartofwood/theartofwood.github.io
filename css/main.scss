@@ -10,6 +10,8 @@ $header-height: 121px;
 $page-offset: 10px;
 $left-indent: 30px;
 
+$media-small: $page-width + 2 * $page-offset;
+
 body {
   background: url('/images/background.jpg');
   background-repeat: repeat;
@@ -21,6 +23,39 @@ body {
   &.noscroll {
     height: 100%;
     overflow: hidden;
+  }
+}
+
+a {
+  text-decoration: none;
+
+  &.effect {
+    color: #333;
+    position: relative;
+    padding: 0 2px;
+    background-color: transparent;
+    transition: background-color 100ms;
+
+    &:after {
+      z-index: 0;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      display: block;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: #ddd;
+    }
+
+    &:hover {
+      color: #ddd;
+      background-color: #333;
+
+      &:after {
+        display: none;
+      }
+    }
   }
 }
 
@@ -42,8 +77,6 @@ body {
   a {
     display: block;
     height: $header-height;
-    color: white;
-    text-decoration: none;
     background-image: url('/images/logo.jpg');
   }
 }
@@ -84,7 +117,6 @@ body {
         line-height: 40px;
         font-size: 20px;
         color: silver;
-        text-decoration: none;
         transition-duration: 200ms;
         transition-property: padding-left, margin-left;
 
@@ -126,20 +158,9 @@ body {
   }
 }
 
-#slideshow {
-  width: 800px;
-  height: 400px;
-  margin: 30px auto;
-  background: gray;
-
-  font-size: 100px;
-  line-height: 400px;
-  text-align: center;
-}
-
 #footer {
   margin: 10px 30px 0;
-  padding: 5px;
+  padding: 5px 5px 7px;
 
   .bordered:after {
     content: ' | ';
@@ -157,7 +178,6 @@ body {
     background-color: rgba(255,255,255,.2);
 
     a {
-      text-decoration: none;
       color: black;
     }
   }
@@ -200,7 +220,7 @@ body {
   }
 }
 
-@media screen and (max-width: $page-width + 2*$page-offset) {
+@media screen and (max-width: $media-small) {
 
   #wrapper {
     width: 100%;
@@ -317,12 +337,6 @@ body {
     width: calc(100% - 2em);
   }
 
-  #slideshow {
-    width: 100%;
-
-    font-size: 50px;
-  }
-
   #footer {
     margin: 0 10px;
     padding-bottom: 20px;
@@ -335,6 +349,7 @@ body {
     .footer {
       display: block;
       float: none;
+      padding: 4px 0;
     }
   }
 
@@ -388,6 +403,10 @@ body {
       background-image: url(/images/right.png);
     }
   }
+
+  .spinner {
+    margin-top: 50vh;
+  }
 }
 
 @keyframes fading {
@@ -396,7 +415,6 @@ body {
 }
 
 .spinner {
-  margin-top: 50vh;
 
   div {
     width: 14px;
@@ -447,7 +465,7 @@ body {
   }
 }
 
-@media screen and (max-width: $page-width + 2*$page-offset) {
+@media screen and (max-width: $media-small) {
   #lightbox {
     .arrow {
       position: absolute;
@@ -468,4 +486,65 @@ body {
       }
     }
   }
+}
+
+// slideshow
+
+#slideshow {
+  position: relative;
+  overflow: hidden;
+  width: 800px;
+  height: 400px;
+  margin: 30px auto;
+  background-color: #333;
+  border-width: 5px 0;
+  border-style: solid;
+  border-color: #333;
+
+  .slide {
+
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:not(.visible) {
+      display: none;
+
+      .spinner div { animation-play-state: paused; }
+    }
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+    }
+
+    &.animate {
+
+      &.next { animation: nextSlide 1000ms; }
+      &.current { animation: currentSlide 1000ms; }
+
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #slideshow {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@keyframes nextSlide {
+  from { left: 100% }
+  to   { left: 0% }
+}
+
+@keyframes currentSlide {
+  from { left: 0% }
+  to   { left: -100% }
 }
