@@ -1,3 +1,6 @@
+---
+layout:
+---
 function toggleMenu(e) {
   $('#navigation').toggleClass('opened');
   $('#mobile-overlay').toggleClass('visible');
@@ -119,6 +122,11 @@ if (slideshow.length) {
 
   var slideshowImages = $('#slideshow .slide');
 
+  while (slideshowImages.length) {
+    slideshow.append(slideshowImages.splice(Math.floor(Math.random() * slideshowImages.length), 1)[0]);
+  }
+  slideshowImages = $('#slideshow .slide');
+
   slideshowImages.eq(0).addClass('visible');
   slideshowImages.each(function() {
     var spinner = $('<div class="spinner">')
@@ -143,12 +151,12 @@ if (slideshow.length) {
     slideshowImages.eq(curr).addClass('animate current');
     slideshowImages.eq(next).addClass('visible').addClass('animate next');
 
-    window.setTimeout(function() { clearAnimation(curr, next); }, 1000);
+    window.setTimeout(function() { clearAnimation(curr, next); }, {{ site.data.slideshow.animation_duration }});
 
   }
 
   var clearAnimation = function(curr, next) {
-    slideshowImages.eq(curr).removeClass('visible animate current');
+    slideshowImages.eq(curr).removeClass('animate current').removeClass('visible');
     slideshowImages.eq(next).removeClass('animate next');
   }
 
@@ -161,7 +169,5 @@ if (slideshow.length) {
 
   var autoSlides = function() { slideImages(1) };
 
-  var slideShowInterval = window.setInterval(autoSlides, 5000);
-
-  slideshow.bind('click', function() {clearInterval(slideShowInterval)} );
+  var slideShowInterval = window.setInterval(autoSlides, {{ site.data.slideshow.animation_interval }});
 }
