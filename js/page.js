@@ -22,6 +22,7 @@ if (lightboxLinks.length) {
   var lightbox   = $('<div id="lightbox">');
   var leftArrow  = $('<div class="arrow left">');
   var rightArrow = $('<div class="arrow right">');
+  var closeCross = $('<div class="close">');
 
   var lightboxImages;
 
@@ -31,6 +32,7 @@ if (lightboxLinks.length) {
       lightbox.appendTo('body')
         .append(leftArrow)
         .append(rightArrow);
+        // .append(closeCross);
 
       lightboxLinks.each(function() {
         var spinner = $('<div class="spinner">')
@@ -50,6 +52,7 @@ if (lightboxLinks.length) {
 
       lightboxLinks.bind('click', clickLink);
       lightbox.bind('click', toggleLightbox);
+      // closeCross.bind('click', toggleLightbox);
 
       leftArrow.bind('click', function(e) {nextImage(-1,e)});
       rightArrow.bind('click', function(e) {nextImage(1,e)});
