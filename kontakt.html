@@ -4,7 +4,7 @@ title: Kontakt
 navigation_weight: 5
 ---
 
-<h1>Schicke mir eine Nachricht</h1>
+<h1>Schicken Sie mir eine Nachricht</h1>
 
 <form id="contact-form">
   <p>
@@ -29,30 +29,24 @@ navigation_weight: 5
 <script>
   var submit = $('#submit');
   var form   = $('#contact-form');
-  //submit.bind('click', function(e) {
-    //e.preventDefault();
-
-    //submit.prop('disabled', true);
-
-  //});
 
   $(document).bind('submit', '#contact-form', function(e) {
     e.preventDefault();
     submit.prop('disabled', true);
 
-    //$.ajax({
-    //  url: 'https://formspree.io/{{ site.email }}',
-    //  method: 'POST',
-    //  data: $('#contact-form').serialize(),
-    //  dataType: 'json',
-    //  success: function(response) {
-    //    $('h1').text('Nachricht erfolgreich abgeschickt!');
-    //    window.setTimeout(function() { submit.prop('disabled', false); }, 5000);
-    //  },
-    //  error: function(response) {
-    //    $('h1').text('Es ist ein Problem aufgetreten, versuche es erneut.');
-    //    submit.prop('disabled', false);
-    //  }
-    //});
+    $.ajax({
+      url: 'https://formspree.io/{{ site.email }}',
+      method: 'POST',
+      data: $('#contact-form').serialize(),
+      dataType: 'json',
+      success: function(response) {
+        $('h1').text('Nachricht erfolgreich abgeschickt!');
+        window.setTimeout(function() { submit.prop('disabled', false); }, 5000);
+      },
+      error: function(response) {
+        $('h1').text('Es ist ein Problem aufgetreten, versuche es erneut.');
+        submit.prop('disabled', false);
+      }
+    });
   });
 </script>
