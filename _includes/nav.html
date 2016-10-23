@@ -10,6 +10,7 @@
 </div>
 <div id="mobile-overlay"></div>
 <nav id="navigation">
+  <a id="mobile-menu-logo" href="/"></a>
   <ul>{% assign navigation_pages = site.html_pages | sort: 'navigation_weight' %} {% for p in navigation_pages %} {% if p.navigation_weight %} {% assign url = page.url | split: '/' %} {% assign purl = p.url | split: '/' %}
     <li{% if purl[1] == url[1] %} class="active"{% endif %}>
       <a href="{{ p.url | remove: '.html' }}">

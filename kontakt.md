@@ -14,7 +14,7 @@ navigation_weight: 5
   <p>
     <textarea type="text" name="message" placeholder="Die Nachricht" required></textarea>
   </p>
-  <input type="hidden" name="_subject"value="Neue Nachricht">
+  <input type="hidden" name="_subject" value="Neue Nachricht">
   <input type="hidden" name="_format" value="plain">
   <input type="text" name="_gotcha" style="display:none">
   <p>

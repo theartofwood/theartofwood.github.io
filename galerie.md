@@ -4,7 +4,8 @@ title: Galerie
 navigation_weight: 3
 ---
 
-{% for gallery in site.galleries %}
+{% assign galleries = site.galleries | sort: date | reverse %}
+{% for gallery in galleries %}
   {% assign folder = gallery.path | replace: '_galleries/', '' | replace: '.html', '' %}
   <div class="gallery overview">
     <a href="{{ gallery.url }}">

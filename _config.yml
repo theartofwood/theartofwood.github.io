@@ -31,7 +31,8 @@ exclude: ['Gemfile', 'Gemfile.lock', '.gitignore']
 permalink: pretty
 host: 0.0.0.0
 markdown: kramdown
-# theme: minima
+kramdown:
+  smart_quotes: ["sbquo", "lsquo", "bdquo", "ldquo"]
 
 collections:
   galleries:
