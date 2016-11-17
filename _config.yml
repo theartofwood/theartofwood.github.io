@@ -34,6 +34,9 @@ markdown: kramdown
 kramdown:
   smart_quotes: ["sbquo", "lsquo", "bdquo", "ldquo"]
 
+sass:
+  style: compressed
+
 collections:
   galleries:
     output: true
