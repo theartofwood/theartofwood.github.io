@@ -1,5 +1,12 @@
 <div id="slideshow">
-  {% for slide in site.data.slideshow.slides %}{% for image in slide.images %}{% assign path = '/images/galleries/' | append: slide.folder %}
-      <div class="slide" data-gallery="{{ slide.folder }}" data-title="{{ slide.title }}" data-src="{{path}}/{{image}}" data-display="{{path}}/small/{{image}}"></div>
-  {% endfor %} {% endfor %}
+  {% for gallery in site.galleries %}
+    {% assign folder = gallery.path | replace: '_galleries/', '' | replace: '.html', '' %}
+    {% assign smallp = folder | append: '/small' %}
+    {% assign path   = '/images/galleries/' | append: folder %}
+    {% for image in site.static_files %}
+      {% if image.path contains smallp %}
+        <div class="slide" data-gallery="{{ folder }}" data-title="{{ gallery.title }}" data-src="{{ path }}/{{ image.name }}" data-display="{{ path }}/small/{{ image.name }}"></div>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
 </div>
