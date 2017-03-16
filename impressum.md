@@ -8,6 +8,7 @@ navigation_weight: 6
 ## Anbieterinformationen
 
 Tom-Calvin Reimann  
+Kornstieg 17  
 24598 Boostedt
 
 Tel. 0173 882 1584  
