@@ -12,7 +12,9 @@ Kornstieg 17
 24598 Boostedt
 
 Tel. 0173 882 1584  
-Mail: [theartofwood@gmx.de](){: effect}
+Mail: [theartofwood@gmx.de](){: effect}  
+
+Steuernummer: 24 159 03938
 
 ## Bildrechte
 
