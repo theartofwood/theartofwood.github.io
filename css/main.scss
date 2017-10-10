@@ -14,7 +14,8 @@ $media-small: $page-width + 2 * $page-offset;
 $mobile: "only screen and (max-width: #{$media-small})";
 
 body {
-  background: url('/images/background.jpg');
+  background-image: url('/images/background.jpg');
+  background-color: #565656;
   background-repeat: repeat;
   background-position: center top;
   margin: $page-offset;
