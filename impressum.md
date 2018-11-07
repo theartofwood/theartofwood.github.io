@@ -8,10 +8,13 @@ navigation_weight: 6
 ## Anbieterinformationen
 
 Tom-Calvin Reimann  
-24598 Boostedt
+Brüggemannstraße 20  
+24534 Neumünster
 
 Tel. 0173 882 1584  
-Mail: [theartofwood@gmx.de](){: effect}
+Mail: [theartofwood@gmx.de](mailto:theartofwood@gmx.de){: .effect}  
+
+Steuernummer: 24 159 03938
 
 ## Bildrechte
 

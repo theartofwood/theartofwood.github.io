@@ -8,3 +8,5 @@ Miteinander zu verbinden.  Diese Symbiose einzugehen bedeutet für mich, mit Kre
 beschreiten.  Klare Linien in Design und Qualität bei der Auswahl der Rohmaterialien sind dabei für
 mich besonders wichtig.  Dies spiegelt sich bei meinen Arbeiten von Möbeln, Designobjekten, Lampen
 und Holzaccessoires wieder.
+
+Mit Kopf, Herz und Hand.

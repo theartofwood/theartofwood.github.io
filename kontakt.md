@@ -27,26 +27,28 @@ navigation_weight: 5
 </p>
 
 <script>
-  var submit = $('#submit');
-  var form   = $('#contact-form');
+  window.addEventListener('DOMContentLoaded', function() {
+    var submit = $('#submit');
+    var form   = $('#contact-form');
 
-  $(document).bind('submit', '#contact-form', function(e) {
-    e.preventDefault();
-    submit.prop('disabled', true);
+    $(document).bind('submit', '#contact-form', function(e) {
+      e.preventDefault();
+      submit.prop('disabled', true);
 
-    $.ajax({
-      url: 'https://formspree.io/{{ site.email }}',
-      method: 'POST',
-      data: $('#contact-form').serialize(),
-      dataType: 'json',
-      success: function(response) {
-        $('h1').text('Nachricht erfolgreich abgeschickt!');
-        window.setTimeout(function() { submit.prop('disabled', false); }, 5000);
-      },
-      error: function(response) {
-        $('h1').text('Es ist ein Problem aufgetreten, versuche es erneut.');
-        submit.prop('disabled', false);
-      }
+      $.ajax({
+        url: 'https://formspree.io/{{ site.email }}',
+        method: 'POST',
+        data: $('#contact-form').serialize(),
+        dataType: 'json',
+        success: function(response) {
+          $('h1').text('Nachricht erfolgreich abgeschickt!');
+          window.setTimeout(function() { submit.prop('disabled', false); }, 5000);
+        },
+        error: function(response) {
+          $('h1').text('Es ist ein Problem aufgetreten, versuche es erneut.');
+          submit.prop('disabled', false);
+        }
+      });
     });
   });
 </script>
