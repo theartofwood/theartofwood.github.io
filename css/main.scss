@@ -84,8 +84,9 @@ a {
   color: white;
   margin-left: -$page-offset;
   font-size: 50px;
+  position: relative;
 
-  a {
+  .home {
     display: block;
     height: $header-height;
     background-image: url('/images/logo.jpg');
@@ -97,8 +98,23 @@ a {
     line-height: 121px;
     font-size: 2em;
 
-    a {
+    .home {
       background-position: right;
+    }
+  }
+
+  .instagram {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-image: url('/images/insta.png');
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    transition: opacity .1s;
+
+    &:hover {
+      opacity: .75;
     }
   }
 }
