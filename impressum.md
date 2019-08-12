@@ -22,7 +22,7 @@ Steuernummer: 24 159 03938
 
 ## Realisierung
 
-Sven Hüser -- Web- und Softwareentwicklung
+[Hüser + Cheng](https://hueser-cheng.de){: .effect}
 
 # Haftungsbeschränkung für den Inhalt der Website
 
